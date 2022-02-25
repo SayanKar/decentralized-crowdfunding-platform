@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/decentralized-crowdfunding-platform/static/css/main.3e1da9e8.css",
+    "main.js": "/decentralized-crowdfunding-platform/static/js/main.80fddaff.js",
+    "static/media/bg2.png": "/decentralized-crowdfunding-platform/static/media/bg2.64821d6003bf099f6883.png",
+    "static/media/pg1.jpg": "/decentralized-crowdfunding-platform/static/media/pg1.b8319b9930127852a029.jpg",
+    "static/media/bg1.png": "/decentralized-crowdfunding-platform/static/media/bg1.3360404cf8ce61bc7b69.png",
+    "index.html": "/decentralized-crowdfunding-platform/index.html",
+    "main.3e1da9e8.css.map": "/decentralized-crowdfunding-platform/static/css/main.3e1da9e8.css.map",
+    "main.80fddaff.js.map": "/decentralized-crowdfunding-platform/static/js/main.80fddaff.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3e1da9e8.css",
+    "static/js/main.80fddaff.js"
+  ]
+}
