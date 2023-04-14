@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { create } from "ipfs-http-client";
+import { Web3Storage } from 'web3.storage';
 
 function CreateProjectComponent(props) {
   const [formInput, setFormInput] = useState({
@@ -14,7 +15,7 @@ function CreateProjectComponent(props) {
     refundPolicy: "",
   });
 
-  const [inputImage, setInputImage] = useState("");
+  const [inputImage, setInputImage] = useState(null);
 
   // set the form input state if input changes
   function handleChange(e) {
@@ -27,18 +28,8 @@ function CreateProjectComponent(props) {
   // read the input image file provided and set its corresponding state
   async function handleImageChange(e) {
     // read the file content on change
-    const file = e.target.files[0];
-    try {
-      const reader = new window.FileReader();
-      reader.readAsArrayBuffer(file);
-      reader.onloadend = () => {
-        console.log("File read complete");
-        setInputImage(reader.result);
-      };
-    } catch (error) {
-      alert("Error reading file: " + error);
-      console.log(error);
-    }
+    setInputImage(document.querySelector('input[type="file"]'));
+    console.log(document.querySelector('input[type="file"]'));
   }
 
   // return category code
@@ -64,17 +55,17 @@ function CreateProjectComponent(props) {
   // submit the form input data to smart contract
   async function submitProjectData(e) {
     // handle the submit action of the form
-    const client = create({
-      host: "ipfs.infura.io",
-      port: 5001,
-      protocol: "https",
-    });
+    const client = new Web3Storage({ token: process.env.WEB3_STORAGE_API_TOKEN });
     e.preventDefault();
     if (inputImage) {
       try {
-        const added = await client.add(inputImage);
-        console.log(added.path);
-        formInput["image"] = `ipfs.io/ipfs/${added.path}`;
+        console.log("InputImages", inputImage.files);
+        const cid = await client.put(inputImage.files, {
+          name: "Project Image",
+          maxRetries: 3,
+        });
+        console.log(cid);
+        formInput["image"] = `ipfs.io/ipfs/${cid}/${inputImage.files[0].name}`;
       } catch (error) {
         alert("Uploading file error: " + error);
         console.log(error);
