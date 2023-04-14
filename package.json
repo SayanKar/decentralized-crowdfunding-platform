@@ -2,7 +2,6 @@
   "name": "crowdfunding-platform-avalanche",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://SayanKar.github.io/decentralized-crowdfunding-platform",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
