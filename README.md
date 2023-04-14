@@ -638,6 +638,8 @@ It renders the home page of the dApp. The home page displays various projects wh
   
 ## CreateProjectComponent  
 It renders a form for creating a new project. The form has various inputs, required to create a new project such as project category, project name, project description, creator name, image, project site link, funding goal, duration of the funding, refund policy. The project details are sent to the smart contract upon submission of the form. The image provided in the form is then uploaded to IPFS before sending the project details to the smart contract. Thus, the smart contract doesn't contain the image itself, but an IPFS link to the image.  
+
+> **_NOTE:_** To run the Frontend on local you need to set WEB3_STORAGE_API_TOKEN in your .env file
   
 ## ProjectComponent  
 The project component renders all the details about an individual project. At the top, it displays the project name and image, then the total funding it received till now, the number of unique people who funded the project and a button for a user to fund the project with AVAX. After that, it displays the project description and other project information such as project owner name, project link, refund policy, project category and creation date. At the bottom, a table is rendered, listing all the contributors who contributed to the project to date and the amount they contributed, sorted in the descending order of amount contributed.  
